@@ -1,0 +1,32 @@
+# ========== General Python/Pytest ==========
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg
+*.egg-info
+dist/
+build/
+
+# ========== Virtual Environments ==========
+venv/
+env/
+.venv/
+
+# ========== Django ==========
+*.log
+*.pot
+*.pyc
+*/migrations/*  # If you want to hide migrations from Git; consider removing if you do want to track them.
+*.sqlite3
+
+# ========== IDE Directories ==========
+# IntelliJ / PyCharm
+.idea/
+# VSCode
+.vscode/
+# Visual Studio
+.vs/
+
+# ========== OS / Misc ==========
+.DS_Store
+Thumbs.db
