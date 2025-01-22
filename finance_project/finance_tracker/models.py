@@ -13,8 +13,14 @@ class Account(models.Model):
     balance = models.DecimalField(max_digits=12, decimal_places=2)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return f"{self.name} {self.account_type} account for {self.user} balance is: {self.balance} "
+
 class Category(models.Model):
     type = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.type
     
 class Transaction(models.Model):
     TRANSACTION_TYPES = [
