@@ -25,7 +25,7 @@ class Category(models.Model):
 class Transaction(models.Model):
     TRANSACTION_TYPES = [
         ('income', 'Income'),
-        ('expense, Expense'),
+        ('expense', 'Expense'),
     ]
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     amount = models.DecimalField(max_digits=12, decimal_places=2)
@@ -37,3 +37,11 @@ class Transaction(models.Model):
     def __str__(self):
         return f"{self.transaction_type} of {self.amount} on {self.time_of_transaction}"
 
+class Asset(models.Model):
+    ASSET_TYPES =[
+        ('investment', 'Investment'),
+        ('digital', 'Digital'), 
+    ]
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    amount = models.DecimalField(max_digits=10, decimal_places=1)
+    value = models.DecimalField(max_digits=10, decimal_places=2)
