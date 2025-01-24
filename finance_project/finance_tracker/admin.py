@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import Account, BudgetGoal, Transaction, Asset, Category
+from .models import Account, BudgetGoal, Transaction, Asset, Category
 # Register your models here.
 admin.site.register(Account)
 admin.site.register(BudgetGoal)
