@@ -50,5 +50,5 @@ class Asset(models.Model):
 class BudgetGoal(models.Modal):
     title = models.CharField(max_length=50)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    account = models.ForeignKey(Account, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
+    account = models.ForeignKey(Account, on_delete=models.CASCADE, null=True)
