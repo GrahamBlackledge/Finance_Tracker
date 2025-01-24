@@ -33,6 +33,7 @@ class Transaction(models.Model):
     time_of_transaction = models.DateTimeField()
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
     description = models.TextField(blank=True, null=True)
+    is_recurring = models.BooleanField(default=False)
 
     def __str__(self):
         return f"{self.transaction_type} of {self.amount} on {self.time_of_transaction}"
@@ -45,3 +46,9 @@ class Asset(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     amount = models.DecimalField(max_digits=10, decimal_places=1)
     value = models.DecimalField(max_digits=10, decimal_places=2)
+
+class BudgetGoal(models.Modal):
+    title = models.CharField(max_length=50)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    account = models.ForeignKey(Account, on_delete=models.CASCADE)
