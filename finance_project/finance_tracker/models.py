@@ -43,12 +43,20 @@ class Asset(models.Model):
         ('investment', 'Investment'),
         ('digital', 'Digital'), 
     ]
+    type = models.CharField(max_length=30, choices=ASSET_TYPES)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
     amount = models.DecimalField(max_digits=10, decimal_places=1)
     value = models.DecimalField(max_digits=10, decimal_places=2)
+
+    def __str__(self):
+        return f"{self.name} {self.type} asset, {self.amount} amount, worth: {self.value}"
 
 class BudgetGoal(models.Modal):
     title = models.CharField(max_length=50)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
     account = models.ForeignKey(Account, on_delete=models.CASCADE, null=True)
+
+    def __str__(self):
+        return f"{self.title} for {self.category} in {self.account}"
