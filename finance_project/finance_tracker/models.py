@@ -52,7 +52,7 @@ class Asset(models.Model):
     def __str__(self):
         return f"{self.name} {self.type} asset, {self.amount} amount, worth: {self.value}"
 
-class BudgetGoal(models.Modal):
+class BudgetGoal(models.Model):
     title = models.CharField(max_length=50)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
