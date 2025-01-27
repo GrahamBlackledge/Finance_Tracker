@@ -17,3 +17,9 @@ class TransactionCreateView(LoginRequiredMixin, CreateView):
     fields = 'category', 'transaction_type', 'amount', 'time_of_transaction', 'description', 'is_recurring'     
     template_name = 'finance_tracker/transaction_form.html'
     success_url = reverse_lazy('transaction_list')
+
+    def form_valid(self, form):
+        form.instance,user =self.request.user
+        return super().form_valid(form)
+
+class TransactionUpdateView
