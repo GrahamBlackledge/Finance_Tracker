@@ -28,3 +28,7 @@ class TransactionUpdateView(LoginRequiredMixin, UpdateView):
     template_name = 'finance_tracker/transaction_form.html'
     success_url = reverse_lazy('transaction_list')
     
+class TransactionDeleteView(LoginRequiredMixin, DeleteView):
+    model = Transaction 
+    template_name = 'finance_tracker/transaction_confirm_delete.html'
+    success_url = reverse_lazy('transaction_list')
